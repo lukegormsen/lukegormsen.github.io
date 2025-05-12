@@ -1,10 +1,10 @@
 body {
-    background-color: #F2F1E6; /* Off-white yellowish */
-    font-family: Verdana, Arial, sans-serif;
+    background-color: #0000FF; /* Bright blue background */
+    font-family: Arial, sans-serif; /* Standard professional font */
     margin: 0;
     padding: 0;
     display: block;
-    color: #333333;
+    color: #000080; /* Navy text - classic web look */
     min-height: 100vh;
 }
 
@@ -16,37 +16,43 @@ body {
 }
 
 .login-box {
-    background-color: #FFFACD; /* Light yellowish */
-    border: 3px solid #808080; /* Grey */
-    border-radius: 0px; /* Squared corners for retro look */
+    background-color: #F5F5F5; /* Light gray */
+    border: 3px solid #0033CC; /* Medium blue border */
+    border-radius: 0; /* No rounded corners */
     padding: 20px;
-    box-shadow: 5px 5px 0px #5A5A5A; /* Old-school drop shadow */
+    box-shadow: none; /* Remove all shadows */
+}
+
+.login-box.main-container {
+    border: 2px outset #808080; /* Classic gray outset border */
 }
 
 .banner {
-    background: #4B7F52; /* Green */
-    border: 2px outset #808080;
+    background: #0033CC; /* Medium blue */
+    border: 2px outset #0000FF; /* Bright blue */
     padding: 10px;
     margin-bottom: 20px;
     text-align: center;
 }
 
 .banner h1 {
-    color: #FFFACD; /* Light yellowish */
-    font-size: 2.5rem;
+    color: #FFFFFF; /* White text on blue */
+    font-size: 28px;
     margin: 0;
     padding: 10px;
-    text-shadow: 2px 2px 0px #333333;
+    text-shadow: none; /* Remove shadow */
+    font-family: "Times New Roman", serif; /* Classic header font */
 }
 
 .marquee {
-    background-color: #DADADA; /* Grey */
-    color: #336633; /* Dark green */
+    background-color: #C0C0C0; /* Silver */
+    color: #000080; /* Navy */
     white-space: nowrap;
     overflow: hidden;
-    border: 2px inset #5A5A5A;
+    border: 2px inset #808080; /* Gray */
     padding: 5px;
     font-weight: bold;
+    font-family: Arial, sans-serif;
 }
 
 .marquee span {
@@ -69,20 +75,21 @@ body {
 }
 
 .login-form {
-    background-color: #F2F1E6; /* Off-white yellowish */
-    border: 2px solid #808080;
+    background-color: #F5F5F5; /* Light gray */
+    border: 2px solid #0033CC; /* Medium blue */
     border-radius: 0px;
     padding: 20px;
     margin-bottom: 20px;
 }
 
 .login-form h2 {
-    color: #4B7F52; /* Green */
+    color: #0033CC; /* Medium blue */
     text-align: center;
     margin-top: 0;
     margin-bottom: 20px;
     border-bottom: 1px solid #808080;
     padding-bottom: 10px;
+    font-family: "Times New Roman", serif;
 }
 
 .form-group {
@@ -99,14 +106,14 @@ label {
 .input-field {
     width: 100%;
     padding: 8px;
-    border: 2px inset #DADADA;
+    border: 2px inset #808080; /* Gray inset border for that Win98 feel */
     background-color: #FFFFFF;
-    color: #333333;
-    font-family: Verdana, Arial, sans-serif;
+    color: #000080; /* Navy text */
+    font-family: Arial, sans-serif;
 }
 
 .input-field:focus {
-    border-color: #4B7F52;
+    border-color: #0033CC; /* Medium blue */
     outline: none;
 }
 
@@ -123,21 +130,17 @@ label {
 .submit-btn {
     width: 100%;
     padding: 10px;
-    background-color: #4B7F52; /* Green */
-    border: 2px outset #336633;
-    color: #FFFFFF;
+    background-color: #C0C0C0; /* Silver */
+    border: 2px outset #808080; /* Gray */
+    color: #000000; /* Black text */
     font-weight: bold;
     cursor: pointer;
-    font-family: Verdana, Arial, sans-serif;
+    font-family: Arial, sans-serif;
     font-size: 1.1rem;
 }
 
-.submit-btn:hover {
-    background-color: #336633;
-}
-
 .submit-btn:active {
-    border-style: inset;
+    border-style: inset; /* Classic Windows button press effect */
 }
 
 .message {
@@ -145,17 +148,18 @@ label {
     padding: 10px;
     text-align: center;
     min-height: 20px;
-    background-color: #F2F1E6;
-    border: 1px solid #DADADA;
+    background-color: #F5F5F5;
+    border: 1px solid #808080;
+    font-family: Arial, sans-serif;
 }
 
 .error {
-    color: #CC0000;
+    color: #CC0000; /* Red */
     font-weight: bold;
 }
 
 .success {
-    color: #4B7F52;
+    color: #0000FF; /* Blue */
     font-weight: bold;
 }
 
@@ -176,9 +180,9 @@ label {
 
 .under-construction {
     text-align: center;
-    margin-top: 20px;
+    margin: 15px auto;
+    padding: 10px;
     border-top: 1px solid #808080;
-    padding-top: 10px;
 }
 
 /* Hide the main content initially */
@@ -219,8 +223,8 @@ label {
 
 /* Menu bar styles for main page */
 .menu-bar {
-    background-color: #4B7F52; /* Green */
-    border: 2px outset #336633;
+    background: #000080; /* Navy - classic 90s */
+    border: 2px outset #000080;
     padding: 5px;
     margin-bottom: 15px;
     display: flex;
@@ -228,30 +232,32 @@ label {
 }
 
 .menu-bar a {
-    color: #FFFACD;
+    color: #FFFFFF;
+    background-color: #000080;
     text-decoration: none;
     padding: 5px 10px;
     font-weight: bold;
+    border: 1px outset #4B7F52;
+    margin: 0 3px;
 }
 
 .menu-bar a:hover {
-    background-color: #336633;
+    background-color: #4B7F52;
 }
 
 /* Content area styles for main page */
 .welcome-message {
-    background-color: #F2F1E6;
-    border: 2px solid #808080;
+    background-color: #F5F5F5; /* Light gray */
+    border: 2px solid #0033CC; /* Medium blue */
     padding: 20px;
     margin-bottom: 20px;
     text-align: center;
 }
 
 .welcome-message h2 {
-    color: #4B7F52;
+    color: #0033CC; /* Medium blue */
     margin-top: 0;
-    border-bottom: 1px solid #808080;
-    padding-bottom: 10px;
+    font-family: "Times New Roman", serif;
 }
 
 .content-area {
@@ -275,13 +281,16 @@ label {
 }
 
 .logout-btn {
-    background-color: #993333 !important; /* Reddish color to stand out */
-    border: 2px outset #772222;
+    background-color: #C0C0C0 !important; /* Silver */
+    border: 2px outset #808080 !important; /* Gray */
+    color: #000000 !important;
     font-weight: bold;
+    padding: 2px 8px;
+    text-decoration: none;
 }
 
 .logout-btn:hover {
-    background-color: #772222 !important;
+    background-color: #A9A9A9 !important; /* Darker gray on hover */
 }
 
 /* Additional styles for the busy retro main page */
@@ -290,44 +299,59 @@ label {
     max-width: 950px;
 }
 
-/* Three-column layout */
+/* Main layout for 3-column design */
 .main-content-layout {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
     gap: 10px;
-    margin-bottom: 15px;
     width: 100%;
 }
 
 .left-column {
     width: 20%;
-    min-width: 200px;
+    min-width: 180px;
 }
 
 .center-column {
-    flex: 1;
-    min-width: 60%;
+    width: 60%;
 }
 
 .right-column {
-    width: 25%;
+    width: 20%;
+    min-width: 180px;
+}
+
+/* On small screens, stack the columns */
+@media (max-width: 768px) {
+    .main-content-layout {
+        flex-direction: column;
+    }
+    
+    .left-column, .center-column, .right-column {
+        width: 100%;
+    }
 }
 
 /* Content boxes common styling */
 .content-box {
-    background-color: #F2F1E6;
-    border: 2px solid #808080;
+    background-color: #F5F5F5; /* Light gray */
+    border: 2px inset #808080; /* Gray border for that Win98 feel */
     margin-bottom: 15px;
     padding: 10px;
 }
 
 .content-box h3 {
-    color: #4B7F52;
-    font-size: 14px;
-    border-bottom: 1px solid #808080;
-    padding-bottom: 5px;
-    margin-top: 0;
+    background-color: #0033CC; /* Medium blue header background */
+    color: #FFFFFF; /* White text */
+    padding: 5px;
+    margin-top: -10px;
+    margin-left: -10px;
+    margin-right: -10px;
     margin-bottom: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
 }
 
 .content-box h4 {
@@ -339,14 +363,15 @@ label {
 /* Welcome message styling */
 .welcome-message {
     padding: 10px;
-    text-align: center;
+    background-color: #F5F5F5; /* Light gray */
+    border: 2px solid #0033CC; /* Medium blue */
     margin-bottom: 15px;
 }
 
 .welcome-message h2 {
-    font-size: 16px;
+    color: #0033CC; /* Medium blue */
     margin-top: 0;
-    margin-bottom: 10px;
+    font-family: "Times New Roman", serif;
 }
 
 .welcome-message p {
@@ -354,9 +379,9 @@ label {
 }
 
 .blink {
-    animation: blinker 1s linear infinite;
-    color: #CC0000;
+    color: #FF0000; /* Red */
     font-weight: bold;
+    animation: blinker 1s step-start infinite;
 }
 
 @keyframes blinker {
@@ -394,14 +419,17 @@ label {
 
 /* Buddy list styling */
 .buddy-list {
-    font-size: 12px;
+    background-color: #F5F5F5; /* Light gray */
 }
 
 .buddy {
-    display: flex;
-    align-items: center;
-    margin-bottom: 5px;
-    padding: 2px;
+    padding: 5px;
+    border-bottom: 1px solid #C0C0C0; /* Light gray divider */
+}
+
+.buddy span {
+    font-family: Arial, sans-serif;
+    color: #000080; /* Navy */
 }
 
 .buddy img {
@@ -523,10 +551,9 @@ label {
 }
 
 .event {
+    border-bottom: 1px solid #C0C0C0; /* Light gray divider */
+    padding: 5px 0;
     display: flex;
-    margin-bottom: 8px;
-    padding-bottom: 4px;
-    border-bottom: 1px dotted #DADADA;
 }
 
 .event:last-child {
@@ -534,9 +561,13 @@ label {
 }
 
 .event-date {
-    color: #333333;
+    background-color: #0033CC; /* Medium blue */
+    color: #FFFFFF; /* White text */
+    padding: 2px 5px;
+    margin-right: 10px;
     font-weight: bold;
     width: 50px;
+    text-align: center;
 }
 
 .view-all {
@@ -788,13 +819,11 @@ label {
 
 /* Fake advertisement */
 .fake-ad {
-    background-color: #FFFFFF;
-    border: 2px solid #CCCCCC;
-    padding: 5px;
-    margin-bottom: 15px;
     text-align: center;
-    position: relative;
-    overflow: hidden;
+    margin: 15px 0;
+    border: 2px solid #0000FF; /* Bright blue */
+    padding: 5px;
+    background-color: #F5F5F5; /* Light gray */
 }
 
 .fake-ad img {
@@ -804,19 +833,14 @@ label {
 }
 
 .ad-text {
-    position: absolute;
-    bottom: 5px;
-    left: 0;
-    right: 0;
-    background-color: rgba(255, 255, 205, 0.8);
-    padding: 5px;
+    color: #0000FF; /* Bright blue text */
     font-weight: bold;
-    color: #CC0000;
-    font-size: 14px;
-    animation: flash 2s infinite;
+    margin-top: 5px;
+    font-family: Arial, sans-serif;
+    animation: blinker 1s step-start infinite;
 }
 
-@keyframes flash {
+@keyframes blinker {
     0%, 50%, 100% { opacity: 1; }
     25%, 75% { opacity: 0.5; }
 }
@@ -834,33 +858,15 @@ label {
     vertical-align: middle;
 }
 
-.under-construction {
-    text-align: center;
-    margin-top: 20px;
-    border-top: 1px solid #808080;
-    padding-top: 10px;
-    font-size: 12px;
-}
-
 .disclaimer {
     font-size: 10px;
-    color: #666666;
+    color: #000080; /* Navy text */
     margin: 10px 0;
+    font-family: "Courier New", monospace;
 }
 
 .valid-html {
     margin-top: 10px;
-}
-
-/* Make sure the logout button stands out */
-.logout-btn {
-    background-color: #993333 !important;
-    border: 2px outset #772222;
-    font-weight: bold;
-}
-
-.logout-btn:hover {
-    background-color: #772222 !important;
 }
 
 /* For the login page, keep it centered */
@@ -903,15 +909,15 @@ body.login-page {
 }
 
 .movie-entry {
-    background-color: #FFFACD;
-    border: 2px solid #808080;
+    background-color: #F5F5F5; /* Light gray */
+    border: 2px outset #808080; /* Gray */
     margin-bottom: 15px;
     padding: 10px;
 }
 
 .movie-header {
-    background-color: #4B7F52;
-    color: #FFFACD;
+    background-color: #0033CC; /* Medium blue */
+    color: #FFFFFF; /* White text */
     padding: 5px;
     display: flex;
     justify-content: space-between;
@@ -929,8 +935,8 @@ body.login-page {
 }
 
 .scores {
-    background-color: #F2F1E6;
-    border: 1px solid #808080;
+    border: 2px inset #808080;
+    background-color: #FFFFFF;
     padding: 5px;
     margin-bottom: 10px;
     display: flex;
@@ -1006,4 +1012,63 @@ body.login-page {
 .stat-value {
     font-weight: bold;
     color: #4B7F52;
+}
+
+/* Add more visibly chunky dividers */
+hr {
+    height: 2px;
+    background-color: #808080;
+    border: none;
+}
+
+/* Make all link colors the default blue */
+a {
+    color: #0000FF; /* Bright blue */
+    text-decoration: underline;
+}
+
+a:visited {
+    color: #800080; /* Classic visited link purple */
+}
+
+/* Footer ad placement */
+.footer-ad {
+    width: 250px; 
+    margin: 10px auto;
+    text-align: center;
+}
+
+/* Right column hit counter styling */
+.right-aligned {
+    text-align: center;
+    margin: 10px auto;
+    padding: 8px;
+    background-color: #F5F5F5;
+    border: 1px solid #808080;
+}
+
+.right-column .content-box {
+    margin-bottom: 15px;
+    background-color: #F5F5F5;
+    border: 2px solid #0033CC;
+    padding: 10px;
+}
+
+.right-column .content-box h3 {
+    color: #0033CC;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #808080;
+    padding-bottom: 5px;
+    font-family: "Times New Roman", serif;
+}
+
+.game-countdown {
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    color: #FF0000; /* Red */
+    font-size: 16px;
+    margin-top: 5px;
+    animation: blinker 1s step-start infinite;
 } 

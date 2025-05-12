@@ -12,47 +12,115 @@
             <div class="banner">
                 <h1>Film and Food Friends</h1>
                 <div class="marquee">
-                    <span>Welcome to the ultimate film and food experience! • Established 2004 • </span>
+                    <span>Welcome to the ultimate film and food experience! • Film Critics Choice Awards • New Recipe Collection Added! • Movie Night Friday 8PM EST • </span>
                 </div>
-            </div>
-            
-            <div class="visitor-counter">
-                <img src="https://www.cutercounter.com/hits.php?id=hxndapc&nd=6&style=1" alt="visitor counter">
-                <div>Visitors since June 2004</div>
             </div>
             
             <div class="login-form">
                 <h2>Member Login</h2>
                 <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="text" id="email" class="input-field" placeholder="Enter your email">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" class="input-field" placeholder="Enter your username">
                 </div>
-                
                 <div class="form-group">
                     <label for="password">Password:</label>
                     <input type="password" id="password" class="input-field" placeholder="Enter your password">
                 </div>
-                
                 <div class="remember-me">
                     <input type="checkbox" id="remember" checked>
-                    <label for="remember">Keep me signed in</label>
+                    <label for="remember">Remember me</label>
                 </div>
-                
-                <button id="submit-btn" class="submit-btn">Sign In</button>
-                
-                <div id="message" class="message"></div>
-                
-                <div class="help-links">
-                    <a href="#">Forgot Password?</a> | <a href="#">Sign Up</a>
-                </div>
+                <button id="login-btn" class="submit-btn">Log In</button>
+                <div id="login-message" class="message"></div>
             </div>
             
             <div class="under-construction">
-                <img src="https://gifcities.org/assets/construct.gif" alt="Under Construction">
-                <p>© 2004 Film And Food Friends. All rights reserved.</p>
+                <img src="./images/construction.gif" alt="Under Construction">
+                <div class="disclaimer">Best viewed in Internet Explorer 6.0 at 800x600 resolution</div>
+                <p>© Film And Food Friends 2004. All rights reserved.</p>
+                <div class="valid-html">
+                    <img src="./images/valid.gif" alt="Valid HTML 4.01!">
+                </div>
             </div>
         </div>
     </div>
-    <script src="script.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const loginBtn = document.getElementById('login-btn');
+            const usernameInput = document.getElementById('username');
+            const passwordInput = document.getElementById('password');
+            const loginMessage = document.getElementById('login-message');
+            
+            loginBtn.addEventListener('click', function() {
+                const username = usernameInput.value.trim().toLowerCase();
+                const password = passwordInput.value.trim().toLowerCase();
+                
+                if (username === '' || password === '') {
+                    loginMessage.textContent = 'Please enter both username and password.';
+                    loginMessage.className = 'message error';
+                    return;
+                }
+                
+                // Check credentials against specific criteria
+                if (checkCriteria(username, password)) {
+                    localStorage.setItem('userLoggedIn', 'true');
+                    loginMessage.textContent = 'Login successful! Redirecting...';
+                    loginMessage.className = 'message success';
+                    
+                    setTimeout(function() {
+                        window.location.href = 'main.html';
+                    }, 1500);
+                } else {
+                    loginMessage.textContent = 'Invalid login credentials. Try again!';
+                    loginMessage.className = 'message error';
+                }
+            });
+            
+            // Check login criteria
+            function checkCriteria(username, password) {
+                // Check for .edu email domain
+                if (username.endsWith('.edu')) {
+                    return true;
+                }
+                
+                // Check for "harvard" in either field
+                if (username.includes('harvard') || password.includes('harvard')) {
+                    return true;
+                }
+                
+                // Check for "zuck" in either field
+                if (username.includes('zuck') || password.includes('zuck')) {
+                    return true;
+                }
+                
+                // Check for Social Network movie references
+                const socialNetworkTerms = [
+                    'facemash', 'winklevoss', 'fincher', 'eduardo', 'saverin',
+                    'mark', 'zuckerberg', 'thefacebook', 'sean', 'parker', 
+                    'algorithm', 'billion', 'drop the the', 'connected', 'harvard', 
+                    'zuck', 'edu', 'mtsu', 'vandy', 'vanderbilt', 'university', 'college', 
+                    'student', 'movie', 'party'
+                ];
+                
+                for (const term of socialNetworkTerms) {
+                    if (username.includes(term) || password.includes(term)) {
+                        return true;
+                    }
+                }
+                
+                return false;
+            }
+            
+            // Also login on Enter key press
+            [usernameInput, passwordInput].forEach(input => {
+                input.addEventListener('keyup', function(e) {
+                    if (e.key === 'Enter') {
+                        loginBtn.click();
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
