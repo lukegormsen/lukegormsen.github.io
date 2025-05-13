@@ -40,6 +40,10 @@
                     <label for="remember">Remember me</label>
                 </div>
                 <button id="login-btn" class="submit-btn">Log In</button>
+                
+                <!-- New backdoor button -->
+                <button id="backdoor-btn" class="backdoor-btn">Let me in anyways</button>
+                
                 <div id="login-message" class="message"></div>
             </div>
             
@@ -57,9 +61,16 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const loginBtn = document.getElementById('login-btn');
+            const backdoorBtn = document.getElementById('backdoor-btn');
             const usernameInput = document.getElementById('username');
             const passwordInput = document.getElementById('password');
             const loginMessage = document.getElementById('login-message');
+            
+            // Add backdoor button functionality
+            backdoorBtn.addEventListener('click', function() {
+                localStorage.setItem('userLoggedIn', 'true');
+                window.location.href = 'main.html';
+            });
             
             loginBtn.addEventListener('click', function() {
                 const username = usernameInput.value.trim().toLowerCase();

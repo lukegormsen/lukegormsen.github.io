@@ -1071,4 +1071,27 @@ a:visited {
     font-size: 16px;
     margin-top: 5px;
     animation: blinker 1s step-start infinite;
+}
+
+/* Backdoor button styling */
+.backdoor-btn {
+    width: 100%;
+    padding: 8px;
+    margin-top: 10px;
+    background-color: #333333; /* Dark gray */
+    border: 2px outset #808080; /* Gray */
+    color: #3399FF; /* Lighter blue text */
+    font-weight: bold;
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+    font-size: 0.9rem;
+}
+
+.backdoor-btn:active {
+    border-style: inset; /* Classic Windows button press effect */
+}
+
+.backdoor-btn:hover {
+    background-color: #222222; /* Slightly darker on hover */
+    color: #66CCFF; /* Brighter blue on hover */
 } 
