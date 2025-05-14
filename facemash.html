@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FACEMASH - Who's Hotter?</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="./images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+            color: black;
+        }
+        
+        .facemash-header {
+            background-color: #CC0000;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+            font-size: 36px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+        
+        .facemash-container {
+            text-align: center;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+        }
+        
+        .comparison {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 30px 0;
+        }
+        
+        .actor-card {
+            width: 45%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            background-color: white;
+            box-shadow: 3px 3px 5px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: transform 0.2s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .actor-card:hover {
+            transform: scale(1.03);
+            box-shadow: 5px 5px 8px rgba(0,0,0,0.2);
+        }
+        
+        .actor-card img {
+            width: 100%;
+            max-height: 400px;
+            object-fit: contain;
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+        }
+        
+        .actor-name {
+            font-weight: bold;
+            margin-top: 10px;
+            font-size: 1.2em;
+        }
+        
+        .vs-badge {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background-color: white;
+            border-radius: 50%;
+            color: black;
+            font-weight: bold;
+            margin: 0 10px;
+            font-size: 1.2em;
+        }
+        
+        .stats {
+            margin-top: 30px;
+            padding: 15px;
+            background-color: white;
+            border: 1px solid #ddd;
+        }
+        
+        .back-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 8px 15px;
+            background-color: #CC0000;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border: none;
+        }
+        
+        .back-btn:hover {
+            background-color: #990000;
+        }
+        
+        .quote {
+            font-style: italic;
+            margin-bottom: 20px;
+            padding: 10px;
+            border-left: 3px solid #CC0000;
+            background-color: #f9f9f9;
+        }
+        
+        .content-box {
+            background-color: white;
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="facemash-header">
+        FACEMASH
+    </div>
+    
+    <div class="facemash-container">
+        <div class="content-box">
+            <h3 style="text-align: center; color: #000000; background-color: white; border: none; padding: 10px; margin-bottom: 20px;">Were we let in for our looks? No. Will we be judged on them? Yes.</h3>
+            
+            
+            <h2>Who's Hotter? Click to Choose!</h2>
+            
+            <div class="comparison">
+                <div class="actor-card" onclick="voteFor(2)" id="actor1-card">
+                    <img src="./images/facemash/actor1.png" alt="Actor 1" id="actor1-img">
+                </div>
+                
+                <div class="vs-badge">OR</div>
+                
+                <div class="actor-card" onclick="voteFor(1)" id="actor2-card">
+                    <img src="./images/facemash/actor2.png" alt="Actor 2" id="actor2-img">
+                </div>
+            </div>
+            
+            <a href="main.html" class="back-btn">Back to Main Page</a>
+        </div>
+        
+    </div>
+    
+    <script>
+        // List of all actor image filenames - make sure these match your actual files
+        const actorImages = [
+            'amy1.png', 'amy2.png', 'amy3.png',
+            'carma1.png', 'carma2.png', 'carma3.png',
+            'eldon1.png', 'eldon2.png',
+            'ellen1.png', 'ellen2.png', 'ellen3.png', 'ellen4.png',
+            'genny1.png', 'genny2.png', 'genny3.png',
+            'halley1.png', 'halley2.png', 'halley3.png', 'halley4.png', 'halley5.png',
+            'laura1.png', 'laura2.png', 'laura3.png', 'laura4.png', 'laura5.png', 'laura6.png',
+            'luke1.png', 'luke2.png', 'luke3.png', 'luke4.png', 'luke5.png', 'luke6.png', 'luke7.png',
+            'mike1.png', 'mike2.png',
+            'pamela1.png', 'pamela2.png',
+            'philip1.png', 'philip2.png', 'philip3.png', 'philip4.png', 'philip5.png',
+            'rand1.png',
+            'regina1.png',
+            'rosie1.png', 'rosie2.png', 'rosie3.png', 'rosie4.png',
+            'timothy1.png', 'timothy2.png', 'timothy3.png', 'timothy4.png', 'timothy5.png'
+        ];
+        
+        // Shuffle the actorImages array using Fisher-Yates algorithm
+        for (let i = actorImages.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [actorImages[i], actorImages[j]] = [actorImages[j], actorImages[i]];
+        }
+        
+        // Keep track of currently displayed images and the next index to show
+        let currentImages = [];
+        let nextImageIndex = 2; // Start after the first two images
+        
+        // Get the next image that's not currently displayed
+        function getNextImage() {
+            // Get the next image
+            const nextImage = actorImages[nextImageIndex];
+            
+            // Increment the index, wrapping around if needed
+            nextImageIndex = (nextImageIndex + 1) % actorImages.length;
+            
+            // Return the image
+            return nextImage;
+        }
+        
+        // Simple voting function
+        function voteFor(actorNumber) {
+            // Get the next image
+            const newImage = getNextImage();
+            
+            // Update the clicked image source
+            if (actorNumber === 1) {
+                document.getElementById('actor1-img').src = `./images/facemash/${newImage}`;
+                currentImages[0] = newImage;
+            } else {
+                document.getElementById('actor2-img').src = `./images/facemash/${newImage}`;
+                currentImages[1] = newImage;
+            }
+        }
+        
+        // Initialize with first two images on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if user is logged in
+            if (localStorage.getItem('userLoggedIn') !== 'true') {
+                window.location.href = 'index.html';
+                return;
+            }
+            
+            // Set initial images (first two in the array)
+            const firstImage = actorImages[0];
+            const secondImage = actorImages[1];
+            
+            // Set current images
+            currentImages = [firstImage, secondImage];
+            
+            // Update the image elements
+            document.getElementById('actor1-img').src = `./images/facemash/${firstImage}`;
+            document.getElementById('actor2-img').src = `./images/facemash/${secondImage}`;
+            
+            // Log for debugging
+            console.log("Initial images:", currentImages);
+        });
+    </script>
+</body>
+</html> 
